@@ -43,7 +43,7 @@ public class FeedbackService {
         feedbackRepository.save(feedback);
     }
 
-    // Helper method to truncate (no changes)
+
     private Feedback truncateMessage(Feedback feedback) {
         String message = feedback.getMessage();
         if (message != null && message.length() > 200) {

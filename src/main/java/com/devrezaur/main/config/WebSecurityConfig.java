@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-    // ... (keep your passwordEncoder() bean) ...
+
     private final CustomUserDetailsService customUserDetailsService;
 
     @Bean
@@ -32,23 +32,22 @@ public class WebSecurityConfig {
                 .headers(headerConfigurer -> headerConfigurer
                         .frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .authorizeHttpRequests(registry -> registry
-                        // 1. Public pages (no changes)
+
                         .requestMatchers(
                                 "/", "/home", "/search", "/login", "/register",
                                 "/css/**", "/js/**", "/h2-console/**"
                         ).permitAll()
 
-                        // 2. UPDATED: Use hasRole("USER")
+
                         .requestMatchers("/feedback", "/feedback/{feedbackId}/edit", "/user-dashboard").hasRole("USER")
 
-                        // 3. UPDATED: Use hasAnyRole("ADMIN", "USER")
-                        // This allows BOTH users and admins to delete
+
                         .requestMatchers("/feedback/{feedbackId}/delete").hasAnyRole("ADMIN", "USER")
 
-                        // 4. UPDATED: Use hasRole("ADMIN")
+
                         .requestMatchers("/admin/**").hasRole("ADMIN")
 
-                        // 5. All other requests must be authenticated
+
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLoginConfigurer -> formLoginConfigurer

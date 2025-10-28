@@ -25,7 +25,7 @@ public class AppController {
     private final int PAGE_SIZE = 3;
     private final FeedbackService feedbackService;
 
-    // No changes here, it was already paginated
+
     @GetMapping({"/", "/home"})
     public String homePage(@RequestParam(defaultValue = "0") int page, Model model, HttpServletRequest httpServletRequest) {
         Pageable pageable = PageRequest.of(page, PAGE_SIZE, Sort.by("createdAt").descending());
@@ -42,7 +42,7 @@ public class AppController {
         return "home-page";
     }
 
-    // UPDATED for pagination
+
     @GetMapping("/user-dashboard")
     public String userDashboardPage(@RequestParam(defaultValue = "0") int page, Model model, HttpServletRequest httpServletRequest) {
         String userName = httpServletRequest.getUserPrincipal().getName();
@@ -57,7 +57,7 @@ public class AppController {
         return "user-dashboard-page";
     }
 
-    // UPDATED for pagination
+
     @GetMapping("/search")
     public String searchFeedbacks(@RequestParam String searchQuery,
                                   @RequestParam(defaultValue = "0") int page,
@@ -73,7 +73,7 @@ public class AppController {
         return "home-page";
     }
 
-    // --- No changes to the methods below this line ---
+
 
     @GetMapping("/feedback/{feedbackId}")
     public String feedbackDetailPage(@PathVariable UUID feedbackId, Model model) {
@@ -89,7 +89,7 @@ public class AppController {
         return "post-page";
     }
 
-    // ... (rest of your controller is unchanged)
+
 
     @PostMapping("/feedback")
     public String addFeedback(@ModelAttribute Feedback feedback, HttpServletRequest request) {
