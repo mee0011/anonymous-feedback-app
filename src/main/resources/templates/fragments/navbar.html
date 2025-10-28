@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+
+
+<nav th:fragment="navbar">
+
+    <div class="app-name">
+        <a th:href="@{/}">TrueVoice</a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle">
+
+    <label for="nav-toggle" class="hamburger-btn">
+        &#9776; </label>
+
+    <div class="menu">
+        <a th:href="@{/home}">Home</a>
+
+        <a th:href="@{/user-dashboard}" sec:authorize="hasAuthority('ROLE_USER')">User Dashboard</a>
+
+        <a th:href="@{/feedback}" sec:authorize="hasAuthority('ROLE_USER')">Post Feedback</a>
+
+        <a th:href="@{/login}" sec:authorize="!isAuthenticated()">Login</a>
+        <a th:href="@{/logout}" sec:authorize="isAuthenticated()">Logout</a>
+    </div>
+</nav>
+</html>

@@ -1,0 +1,93 @@
+/* --- Base Styles --- */
+nav {
+    color: white;
+    background-color: #1f2833;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #fc5c7d;
+}
+
+.app-name {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* --- Responsive & Mobile-First Styles --- */
+
+/* 1. Hide the checkbox */
+#nav-toggle {
+    display: none;
+}
+
+/* 2. Style the hamburger button (visible on mobile) */
+.hamburger-btn {
+    display: block; /* Show on mobile by default */
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* 3. Style the menu for mobile (hidden by default) */
+.menu {
+    display: none;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1f2833;
+    z-index: 10;
+}
+
+/* 4. Style the links inside the mobile menu */
+.menu a {
+    display: block;
+    padding: 15px 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* 5. THE "CHECKBOX HACK" - Shows the menu when clicked */
+#nav-toggle:checked ~ .menu {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* --- DESKTOP STYLES (Media Query) --- */
+@media (min-width: 768px) {
+
+    /* 1. Hide the hamburger button */
+    .hamburger-btn {
+        display: none;
+    }
+
+    /* 2. Show the menu */
+    .menu {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        position: static;
+        background-color: transparent;
+        width: auto;
+    }
+
+    /* 3. Reset mobile link styles */
+    .menu a {
+        padding: 0;
+        width: auto;
+    }
+}
