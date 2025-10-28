@@ -1,6 +1,6 @@
-# TrueVoice - Web Feedback Application
+# Anonymous-Feedback-App - Web Feedback Application
 
-TrueVoice is a full-stack web application built with **Java** and the **Spring Boot** framework. It allows users to register, log in, and post feedback. The application is secured using Spring Security and features a fully responsive, in-memory data management, and data encryption.
+Anonymous-Feedback-App is a full-stack web application built with **Java** and the **Spring Boot** framework. It allows users to register, log in, and post feedback. The application is secured using Spring Security and features a fully responsive, in-memory data management, and data encryption.
 
 ## 🚀 Features Implemented
 
@@ -30,7 +30,7 @@ This project successfully implements all required features for the module, inclu
 
 1.  **Clone the repository:**
     ```sh
-    git clone <your-repository-url>
+    git clone https://github.com/mee0011/anonymous-feedback-app.git
     ```
 2.  **Navigate to the project directory:**
     ```sh
